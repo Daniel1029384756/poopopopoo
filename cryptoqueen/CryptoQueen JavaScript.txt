@@ -1,0 +1,65 @@
+let promoRedeemed = false;
+let totalDeposits = 0;
+
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+function copyToClipboard(address) {
+    const el = document.createElement('textarea');
+    el.value = address;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    alert(`Osoite ${address} kopioitu leikepöydälle!`);
+}
+
+function applyPromoCode() {
+    const promoCode = document.getElementById('promoCode').value;
+    const promoMessage = document.getElementById('promoMessage');
+    const ethAmount = document.getElementById('ethAmount');
+
+    if (promoCode === 'ETH01') {
+        ethAmount.style.display = 'block';
+        promoMessage.textContent = 'Koodi hyväksytty! Sinulle on lisätty 0.1 Ethereumia.';
+        promoMessage.style.color = 'green';
+        promoRedeemed = true;
+    } else {
+        ethAmount.style.display = 'none';
+        promoMessage.textContent = 'Virheellinen koodi.';
+        promoMessage.style.color = 'red';
+    }
+}
+
+function deposit() {
+    const depositAmount = parseFloat(document.getElementById('depositAmount').value);
+    const depositMessage = document.getElementById('depositMessage');
+
+    if (isNaN(depositAmount) || depositAmount < 10) {
+        depositMessage.textContent = 'Minimitalletus on 10 dollaria. Yritä uudelleen.';
+        depositMessage.style.color = 'red';
+    } else {
+        totalDeposits += depositAmount;
+        depositMessage.textContent = `Talletus onnistui! Olet tallettanut yhteensä ${totalDeposits} dollaria.`;
+        depositMessage.style.color = 'green';
+    }
+}
+
+function withdraw() {
+    const withdrawMessage = document.getElementById('withdrawMessage');
+
+    if (promoRedeemed && totalDeposits < 10) {
+        withdrawMessage.textContent = 'Et voi kotiuttaa 0.1 Ethereumia ennen kuin olet tallettanut vähintään 10 dollaria.';
+        withdrawMessage.style.color = 'red';
+    } else if (promoRedeemed && totalDeposits >= 10) {
+        withdrawMessage.textContent = 'Onneksi olkoon! Voit nyt kotiuttaa 0.1 Ethereumia.';
+        withdrawMessage.style.color = 'green';
+    } else {
+        withdrawMessage.textContent = 'Sinulla ei ole kotiutettavaa saldoa.';
+        withdrawMessage.style.color = 'red';
+    }
+}

@@ -1,0 +1,206 @@
+/* Yleiset asetukset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f7f6; /* Kevyt harmaa tausta */
+    color: #333; /* Tumma teksti, hyvä kontrasti */
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #3b5998; /* Pehmeä sininen */
+    color: #fff;
+    padding: 10px 0;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #dfe3e6; /* Vaalea hover-efekti */
+}
+
+.hamburger {
+    display: none; /* Näkyy vain mobiililaitteilla */
+}
+
+main {
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+h1, h2 {
+    color: #2c3e50; /* Tumma sininen otsikoille */
+}
+
+h3 {
+    color: #34495e; /* Hieman vaaleampi sininen */
+}
+
+p {
+    margin: 10px 0;
+}
+
+button {
+    background-color: #3498db; /* Raikas sininen painikkeille */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9; /* Hover-väri painikkeille */
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Talletusosio */
+.crypto-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.crypto-option {
+    background-color: #ecf0f1; /* Vaalea harmaa tausta laatikoille */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Kevyt varjo */
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+}
+
+.crypto-option h3 {
+    color: #2980b9; /* Kirkas sininen otsikoille */
+}
+
+.crypto-option p {
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .crypto-option {
+        width: 100%; /* Mobiililaitteilla täysleveydet laatikoille */
+    }
+}
+
+/* FAQ-osio */
+.faq-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+}
+
+.faq-item h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+/* Promo-osio */
+#ethAmount {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Kotiutusosio */
+#withdrawMessage {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #e74c3c; /* Punainen virheviesteille */
+}
+
+/* Mobiilinavigointi */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #3b5998;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 100;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 30px;
+        height: 3px;
+        margin: 5px;
+        background-color: white;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}

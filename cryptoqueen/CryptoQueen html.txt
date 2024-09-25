@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Deposit Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">MyCryptoSite</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#deposit">Deposit</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#promo">Claim 0.1 ETH</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Welcome to MyCryptoSite!</h1>
+            <p>You can deposit Ethereum, Bitcoin, or Litecoin using the options below. Make sure to deposit ONLY to the addresses provided!</p>
+        </section>
+
+        <section id="deposit">
+            <h2>Deposit Options</h2>
+            <p>Select the amount to deposit (min. $10):</p>
+            <input type="number" id="depositAmount" placeholder="Enter deposit amount" min="10">
+            <button onclick="deposit()">Deposit</button>
+            <p id="depositMessage"></p>
+        </section>
+
+        <section id="promo">
+            <h2>Claim 0.1 Ethereum</h2>
+            <p>Enter the code to receive 0.1 Ethereum on your account.</p>
+            <input type="text" id="promoCode" placeholder="Enter promo code">
+            <button onclick="applyPromoCode()">Activate Code</button>
+            <p id="promoMessage"></p>
+            <div id="ethAmount" style="display: none;">
+                <p>Congratulations! You've received 0.1 Ethereum.</p>
+            </div>
+        </section>
+
+        <section id="withdraw">
+            <h2>Withdraw</h2>
+            <p>Withdraw your Ethereum balance:</p>
+            <button onclick="withdraw()">Withdraw 0.1 Ethereum</button>
+            <p id="withdrawMessage"></p>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
